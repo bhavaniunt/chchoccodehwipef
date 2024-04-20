@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Chocolate Store</title>
+
+<style>
+
+
+Insert at cursor
+
+Copy
+nav li a {
+  color: #333;
+}
+
+nav li a:hover {
+  color: #fff;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Chocolate Store</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Shop</a></li>
+<li><a href="#">Cart</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<div id="showcase">
+<h1>Chocolates to Satisfy Your Sweet Tooth</h1>
+</div>
+
+<div class="page-content">
+
+
+Insert at cursor
+
+Copy
+<div class="chocolate-item">
+  <img alt="Milk chocolate bar" src="milk-chocolate.jpg">
+  <h3>Milk Chocolate</h3>
+  <p>$2.99/bar</p>
+  <button onclick="addToCart('Milk Chocolate', 2.99)">Add to Cart</button>
+</div>
+
+<div class="chocolate-item"> 
+  <img alt="Dark chocolate bar" src="dark-chocolate.jpg">
+  <h3>Dark Chocolate</h3>
+  <p>$3.49/bar</p>  
+  <button onclick="addToCart('Dark Chocolate', 3.49)">Add to Cart</button>
+</div>
+
+<div class="chocolate-item">
+  <img alt="White chocolate bar" src="white-chocolate.jpg">
+  <h3>White Chocolate</h3>
+  <p>$2.50/bar</p>
+  <button onclick="addToCart('White Chocolate', 2.50)">Add to Cart</button>
+</div>
+</div>
+
+<p id="total"></p>
+
+<footer>
+<p>&copy; 2023 Chocolate Store. All rights reserved.</p>
+</footer>
+
+<script>
+
+
+Insert at cursor
+
+Copy
+var cart = [];
+var total = 0;
+
+function addToCart(name, price) {
+  cart.push({
+    name: name,
+    price: price  
+  });
+
+  updateTotal();
+}
+
+function updateTotal() {
+  total = 0;
+  for(var i=0; i<cart.length; i++) {
+    total += cart[i].price;
+  }
+
+  document.getElementById("total").innerHTML = "Total: $" + total;
+}
+</script>
+
+</body>
+
+</html>
