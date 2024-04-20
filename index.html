@@ -1,26 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <title>Chocolate Store</title>
-
 <style>
+body {
+font-family: Arial, sans-serif;
+background: #fff;
+color: #333;
+}
 
+/* Header */
+header {
+background: #333;
+color: #fff;
+padding: 20px;
+}
 
-Insert at cursor
+header h1 {
+margin: 0;
+}
 
-Copy
+/* Navigation */
+nav {
+background: #cd853f;
+}
+
+nav ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+}
+
+nav li {
+float: left;
+}
+
 nav li a {
-  color: #333;
+color: #fff;
+text-decoration: none;
+padding: 14px 16px;
+display: block;
 }
 
 nav li a:hover {
-  color: #fff;
+background-color: #ddd;
+color: #333;
+}
+
+/* Showcase */
+#showcase {
+min-height: 400px;
+background: url('chocolates.jpg') no-repeat 0 -400px;
+text-align: center;
+color: #333;
+}
+
+#showcase h1 {
+margin-top: 100px;
+font-size: 55px;
+}
+
+/* Page Content */
+.page-content {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+/* Chocolate Item */
+.chocolate-item {
+flex: 0 1 29%;
+text-align: center;
+padding: 16px;
+margin: 8px;
+background: #fff;
+border: 1px solid #ddd;
+}
+
+/* Footer */
+footer {
+background: #333;
+color: #fff;
+text-align: center;
+padding: 8px;
 }
 </style>
 
-</head>
+<script>
+var cart = [];
+var total = 0;
 
+function addToCart(name, price) {
+cart.push({
+name: name,
+price: price
+});
+
+updateTotal();
+}
+
+function updateTotal() {
+total = 0;
+for(var i=0; i<cart.length; i++) {
+total += cart[i].price;
+}
+
+document.getElementById("total").innerHTML = "Total: $" + total;
+}
+</script>
+
+</head>
 <body>
 
 <header>
@@ -42,30 +132,27 @@ nav li a:hover {
 
 <div class="page-content">
 
-
-Insert at cursor
-
-Copy
 <div class="chocolate-item">
-  <img alt="Milk chocolate bar" src="milk-chocolate.jpg">
-  <h3>Milk Chocolate</h3>
-  <p>$2.99/bar</p>
-  <button onclick="addToCart('Milk Chocolate', 2.99)">Add to Cart</button>
-</div>
-
-<div class="chocolate-item"> 
-  <img alt="Dark chocolate bar" src="dark-chocolate.jpg">
-  <h3>Dark Chocolate</h3>
-  <p>$3.49/bar</p>  
-  <button onclick="addToCart('Dark Chocolate', 3.49)">Add to Cart</button>
+<img src="milk-chocolate.jpg" alt="Milk chocolate bar">
+<h3>Milk Chocolate</h3>
+<p>$2.99/bar</p>
+<button onclick="addToCart('Milk Chocolate', 2.99)">Add to Cart</button>
 </div>
 
 <div class="chocolate-item">
-  <img alt="White chocolate bar" src="white-chocolate.jpg">
-  <h3>White Chocolate</h3>
-  <p>$2.50/bar</p>
-  <button onclick="addToCart('White Chocolate', 2.50)">Add to Cart</button>
+<img src="dark-chocolate.jpg" alt="Dark chocolate bar">
+<h3>Dark Chocolate</h3>
+<p>$3.49/bar</p>
+<button onclick="addToCart('Dark Chocolate', 3.49)">Add to Cart</button>
 </div>
+
+<div class="chocolate-item">
+<img src="white-chocolate.jpg" alt="White chocolate bar">
+<h3>White Chocolate</h3>
+<p>$2.50/bar</p>
+<button onclick="addToCart('White Chocolate', 2.50)">Add to Cart</button>
+</div>
+
 </div>
 
 <p id="total"></p>
@@ -74,34 +161,5 @@ Copy
 <p>&copy; 2023 Chocolate Store. All rights reserved.</p>
 </footer>
 
-<script>
-
-
-Insert at cursor
-
-Copy
-var cart = [];
-var total = 0;
-
-function addToCart(name, price) {
-  cart.push({
-    name: name,
-    price: price  
-  });
-
-  updateTotal();
-}
-
-function updateTotal() {
-  total = 0;
-  for(var i=0; i<cart.length; i++) {
-    total += cart[i].price;
-  }
-
-  document.getElementById("total").innerHTML = "Total: $" + total;
-}
-</script>
-
 </body>
-
 </html>
